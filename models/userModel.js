@@ -4,7 +4,13 @@ const bcrypt = require('bcryptjs');
 const validator = require('validator')
 
 const userSchema = new mongoose.Schema({
-    name: {
+    username: {
+        type: String,
+        trim: true,
+        unique: true,
+        required: [true, `Please enter a username`]
+    },
+    fullname: {
         type: String,
         trim: true,
         required: [true, `user must have a name`]
@@ -22,12 +28,41 @@ const userSchema = new mongoose.Schema({
         select: false,
         required: [true, `user must have a password`]
     },
+    amount: {
+        type: Number
+    },
+    country: {
+        type: String
+    },
     role: {
         type: String,
         enum: ['user', 'admin'],
         default: 'user'
     },
-    // passwordChangedAt: Date,
+    acct_bal: {
+        type: Number,
+        min: 0
+    },
+    total_profit: {
+        type: Number,
+        min: 0
+    },
+    bonus: {
+        type: Number,
+        min: 0
+    },
+    referral_bonus: {
+        type: Number,
+        min: 0
+    },
+    total_deposit: {
+        type: Number,
+        min: 0
+    },
+    total_withdrawal: {
+        type: Number,
+        min: 0
+    },
     passwordResetToken: String,
     passwordResetExpires: Date
 });
