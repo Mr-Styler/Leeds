@@ -1,0 +1,32 @@
+.settotal-container {
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 30px;
+}
+
+.settotal-header {
+  background-color: white;
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 50px;
+  padding-right: 20px;
+  height: 60px;
+  border-radius: 17px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.164);
+}
+
+.settotal-input1 {
+  border: 0px;
+}
+
+.settotal-name {
+  color: var(--color-mediumslateblue-100);
+  font-weight: bold;
+  cursor: pointer;
+}

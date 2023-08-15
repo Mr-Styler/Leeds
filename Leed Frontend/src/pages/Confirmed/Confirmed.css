@@ -1,0 +1,39 @@
+.confirmed-container {
+  background-color: whitesmoke;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.cofirmed-header {
+  background-color: white;
+  display: flex;
+  height: 60px;
+  width: 90%;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-radius: 17px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.185);
+}
+
+.confirmed-1a {
+  font-weight: bold;
+  color: var(--color-mediumslateblue-100);
+  margin-bottom: 10px;
+}
+
+.confirmed-1b {
+  font-weight: bold;
+  color: gray;
+  font-size: 13px;
+}
+
+.confirmed-3a {
+  color: green;
+  font-weight: bold;
+}

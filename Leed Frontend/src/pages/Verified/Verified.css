@@ -1,0 +1,75 @@
+.body {
+  font-family: 'Rubik', sans-serif;
+  background-color: whitesmoke;
+}
+
+.container {
+  background-color: white;
+  width: 60%;
+  min-width: 300px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  padding: 50px 30px;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.05);
+}
+
+.image-container {
+  width: 90%;
+  margin: 0 auto 30px auto;
+}
+
+.image-container img {
+  display: block;
+  position: relative;
+  max-width: 100%;
+  max-height: 400px;
+  margin: auto;
+}
+
+figcaption {
+  margin: 20px 0 30px 0;
+  text-align: center;
+  color: #2a292a;
+}
+
+.upload-top {
+  display: flex;
+}
+
+.upload {
+  width: 20px;
+}
+
+.send {
+  width: 20px;
+  background-color: var(--color-mediumslateblue-100);
+  padding: 18px 18px;
+  border-radius: 5px;
+  margin: auto;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.send-input {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+}
+
+label {
+  display: flex;
+  background-color: var(--color-mediumslateblue-100);
+  color: white;
+  font-size: 18px;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  padding: 18px 0;
+  border-radius: 5px;
+  margin: auto;
+  cursor: pointer;
+}

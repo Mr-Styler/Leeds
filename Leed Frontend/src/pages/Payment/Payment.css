@@ -1,0 +1,42 @@
+.payment-container {
+  height: 100vh;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.copy-link {
+  background-color: white;
+  width: 80%;
+  display: flex;
+  height: 50px;
+  margin-bottom: 30px;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  color: var(--color-mediumslateblue-100);
+  font-weight: bold;
+  box-shadow: 4px 24px 24px rgba(0, 0, 0, 0.432);
+}
+
+.copy {
+  background-color: white;
+  cursor: pointer;
+}
+
+.payment-bitcoin {
+  display: flex;
+}
+
+.payment-align {
+  display: flex;
+}
+
+.copy-link-input {
+  display: flex;
+  border: 0px;
+}

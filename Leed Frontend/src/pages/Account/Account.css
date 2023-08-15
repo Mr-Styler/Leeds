@@ -1,0 +1,54 @@
+.account-dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background-color: whitesmoke;
+}
+
+.account-name {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: var(--color-mediumslateblue-100);
+}
+
+.account {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  height: fit-content;
+}
+
+.account1 {
+  display: flex;
+  gap: 70vh;
+  color: var(--color-mediumslateblue-100);
+  font-weight: bold;
+  font-size: 20px;
+  justify-content: space-between;
+  background-color: white;
+  height: 70px;
+  align-items: center;
+  border-radius: 17px;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-shadow: 4px 24px 24px rgba(0, 0, 0, 0.432);
+}
+
+@media screen and (max-width: 913px) {
+  .account1 {
+    display: flex;
+    gap: 50vh;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .account1 {
+    display: flex;
+    gap: 20vh;
+  }
+}

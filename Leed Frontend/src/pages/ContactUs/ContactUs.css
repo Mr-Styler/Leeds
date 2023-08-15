@@ -1,0 +1,143 @@
+.container-about {
+  height: 70vh;
+}
+
+.contactus-here {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: whitesmoke;
+  padding-top: 50px;
+}
+
+.contactus {
+  display: flex;
+  padding: 80px 80px;
+  justify-content: space-between;
+  background-color: whitesmoke;
+}
+
+.contactus-2 {
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 50px;
+}
+
+.contactus-3 {
+  width: 500px;
+  height: 500px;
+}
+
+.contactus-6 {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.contactus-5 {
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 50px;
+}
+
+.contactus-7 {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.contact-session-div-4c-1a {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  width: 1000px;
+  padding: 30px 30px;
+  margin-bottom: 50px;
+}
+
+.contact-session-div-4c-1a-1 {
+  color: var(--color-mediumslateblue-100);
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.contact-session-div-4c-1a-2 {
+  display: flex;
+  gap: 80px;
+  margin-bottom: 20px;
+}
+
+.contact-session-div-4c-1a-2b {
+  color: white;
+  text-decoration: none;
+  background-color: var(--color-mediumslateblue-100);
+  width: 300px;
+  height: 50px;
+  display: flex;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 913px) {
+  .container-about {
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+  }
+  .contactus {
+    display: flex;
+    flex-direction: column;
+  }
+  .about-article {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .about-article-div {
+    font-size: 30px;
+  }
+  .about-article-div2 {
+    font-size: 12px;
+  }
+
+  .container-about {
+    height: 40vh;
+    background-size: cover;
+    background-position: center;
+  }
+  .contactus-2 {
+    font-size: 20px;
+  }
+  .contactus-3 {
+    height: 230px;
+    width: 230px;
+  }
+  .contact-session-div-4c-1a {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 300px;
+    padding: 30px 30px;
+    margin-bottom: 50px;
+  }
+  .contact-session-div-4c-1a-2 {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    margin-bottom: 20px;
+  }
+  .contact-session-div-4c-1a-1 {
+    font-size: 22px;
+  }
+  .contactus-5 {
+    font-size: 22px;
+    padding-top: 20px;
+  }
+}
