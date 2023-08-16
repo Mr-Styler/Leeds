@@ -1,10 +1,38 @@
-import React from 'react';
-import logo from '../../img/leeds-blue.png';
+import { useEffect, useReducer, useState } from 'react';
+import axios from 'axios';import logo from '../../img/leeds-blue.png';
 import styles from '../../pages/Register/Register.css';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
-  return (
+  const [signupInfo, setSignupInfo] = useState({
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
+
+  const handleChange = (e) => {
+    const { value, name } = e.target
+
+    setSignupInfo((prev) => {
+      return {...prev, [name]: value}
+    })
+
+  }
+
+  const fetchData = async() => {
+    try {
+      const result = await axios.post(`http://localhost:1515/api/users/signup`, signupInfo)
+      console.log(result.data)
+    } catch (err) {
+      console.log(err.response.data)
+    }
+  }
+  // useEffect(() => {
+    
+  // }, []);
+    return (
     <div className="register-container">
       <div className="login-containerdiv">
         <img className="register-logo" src={logo} />
@@ -16,33 +44,54 @@ const Register = () => {
             <div className="login-formdiv1">Your Email</div>
             <input
               className="login-form-input"
+              type="email"
+              name="email"
               placeholder="name@example.com"
+              onChange={handleChange}
             />
           </div>
           <div>
             <div className="login-formdiv1">Password</div>
-            <input className="login-form-input" placeholder="Enter Password" />
+            <input className="login-form-input"
+            type="password"
+            name="password"
+            placeholder="Enter Password"
+            onChange={handleChange}
+            />
           </div>
           <div>
             <div className="login-formdiv1">Confirm Password</div>
             <input
               className="login-form-input"
+              type="password"
+              name="confirmPassword"
               placeholder="Re-enter Password"
-            />
+              onChange={handleChange}
+              />
           </div>
           <div>
             <div className="login-formdiv1">Firstname</div>
-            <input className="login-form-input" placeholder="Enter Firstname" />
+            <input 
+              className="login-form-input"
+              placeholder="Enter Firstname"
+              name="firstname"
+              onChange={handleChange}
+              />
           </div>
           <div>
             <div className="login-formdiv1">Lastname</div>
-            <input className="login-form-input" placeholder="Enter Lastname" />
+            <input
+             className="login-form-input"
+             placeholder="Enter Lastname"
+             name="lastname"
+             onChange={handleChange}
+             />
           </div>
         </div>
 
-        <Link to="/login" className="sectiondiv-signin">
+        <button type='button' onClick={fetchData} className="sectiondiv-signin">
           Sign up
-        </Link>
+        </button>
         <div className="main-article">
           <div className="articlediv">Don't have an account?</div>
           <Link to="/login" className="articlediv1">

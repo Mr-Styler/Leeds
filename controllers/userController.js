@@ -9,7 +9,7 @@ exports.getAllUsers = catchAsync(async (req, res, next) => {
     res.status(200).json({
         status: 'success',
         results: users.length,
-        payload: {
+        data: {
             users
         }
     })
@@ -25,7 +25,7 @@ exports.getUser = catchAsync(async (req, res, next) => {
 
     res.status(200).json({
         status: 'success',
-        payload: {
+        data: {
             user
         }
     })
@@ -44,7 +44,7 @@ exports.updateUser = catchAsync(async (req, res, next) => {
 
     res.status(200).json({
         status: 'success',
-        payload: {
+        data: {
             updatedUser
         }
     })

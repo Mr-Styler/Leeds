@@ -9,7 +9,7 @@ router.post('/forgot', authController.forgotPwd);
 router.patch('/reset/:token', authController.passwordCheck, authController.resetPwd);
 
 // Routes that can only be accessed when logged in
-router.use(authController.isAuthenticated);
+// router.use(authController.isAuthenticated);
 
 router.get('/', userController.getAllUsers);
 router.route('/:id', authController.restrictTo(['admin'])).get(userController.getUser).patch(userController.updateUser).delete(userController.deleteUser);
