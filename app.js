@@ -44,7 +44,7 @@ app.use(fileUpload.uploadImages);
 app.use(
   cors({
     // origin: "http://localhost:3000"
-    origin: "https://leeds-frontend.onrender.com/"
+    origin: "https://leeds-frontend.onrender.com"
   })
 );
 
