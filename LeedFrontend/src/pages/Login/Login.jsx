@@ -29,8 +29,8 @@ const Login = () => {
 
   const fetchData = async() => {
     try {
-      // const result = await axios.post(`https://leeds.onrender.com/api/users/login`, loginInfo)
-      const result = await axios.post(`http://localhost:1515/api/users/login`, loginInfo)
+      const result = await axios.post(`https://leeds.onrender.com/api/users/login`, loginInfo)
+      // const result = await axios.post(`http://localhost:1515/api/users/login`, loginInfo)
       console.log(result.data)
       createCookie(result.data.token)
       if (result.data.data.user.role === 'admin') {

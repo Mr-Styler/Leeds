@@ -11,7 +11,8 @@ const transactionSchema = new mongoose.Schema({
     },
     currency: {
         type: String,
-        enum: ['Doge', 'USDT TRC 20', 'Ethereum', 'Bnb', 'Litecoin', 'Bitcoin']
+        lowercase: true,
+        enum: ['doge', 'usdt', 'ethereum', 'bnb', 'litecoin', 'bitcoin']
     },
     time: {
         type: Date,

@@ -43,8 +43,8 @@ app.use(fileUpload.uploadImages);
 // Test middleware
 app.use(
   cors({
-    origin: "http://localhost:3000"
-    // origin: "https://leeds-frontend.onrender.com"
+    // origin: "http://localhost:3000"
+    origin: "https://leeds-frontend.onrender.com"
   })
 );
 

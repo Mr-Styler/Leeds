@@ -13,28 +13,37 @@ const User = () => {
 
   const handleChange = (e) => {
     const { className, value, name } = e.target
-
-    console.log(className)
-
-    setTransactions((prev) => {
-      // return {...prev[className], [name]: value}
+    const newState = transactions.map(obj => {
+      if (obj._id === className) {
+        return {...obj, [name]: value}
+      }
+      return obj;
     })
 
+    console.log(newState)
+    
+    setTransactions(newState)
+    console.log(className, transactions)
   }
 
   const confirmTrans = async(id) => {
     try {
       console.log(cookies.get('jwt'))
-      // const result = await axios.patch(`https://leeds.onrender.com/api/transactions`, { status: 'successful}, {
-      //   headers: {
-      //     'Authorization': `Bearer ${cookies.get('jwt')}`
-      //   }
-      // })
-      const result = await axios.patch(`http://localhost:1515/api/transactions`, { status: 'successful'}, {
+      const index = transactions.findIndex(el => el._id === id.target.className)
+      let updatedTransaction = transactions[index]
+      updatedTransaction.status = 'succeessul'
+      console.log(updatedTransaction)
+      
+      const result = await axios.patch(`https://leeds.onrender.com/api/transactions/${updatedTransaction._id}`, updatedTransaction, {
         headers: {
           'Authorization': `Bearer ${cookies.get('jwt')}`
         }
       })
+      // const result = await axios.patch(`http://localhost:1515/api/transactions/${updatedTransaction._id}`, updatedTransaction, {
+      //   headers: {
+      //     'Authorization': `Bearer ${cookies.get('jwt')}`
+      //   }
+      // })
       console.log(result.data)
     } catch (err) {
       console.log(err.response.data)
@@ -45,23 +54,28 @@ const User = () => {
     const fetchData = async() => {
       try {
         console.log(cookies.get('jwt'))
-        // const result = await axios.get(`https://leeds.onrender.com/api/users`, {
-        //   headers: {
-        //     'Authorization': `Bearer ${cookies.get('jwt')}`
-        //   }
-        // })
-        const result = await axios.get(`http://localhost:1515/api/users`, {
+        const result = await axios.get(`https://leeds.onrender.com/api/users`, {
           headers: {
             'Authorization': `Bearer ${cookies.get('jwt')}`
           }
         })
+        // const result = await axios.get(`http://localhost:1515/api/users`, {
+        //   headers: {
+        //     'Authorization': `Bearer ${cookies.get('jwt')}`
+        //   }
+        // })
         console.log(result.data.data.users)
         setUsers(result.data.data.users)
-        const res = await axios.get(`http://localhost:1515/api/transactions/pending`, {
+        const res = await axios.get(`https://leeds.onrender.com/transactions/pending`, {
           headers: {
             'Authorization': `Bearer ${cookies.get('jwt')}`
           },
         })
+        // const res = await axios.get(`http://localhost:1515/api/transactions/pending`, {
+        //   headers: {
+        //     'Authorization': `Bearer ${cookies.get('jwt')}`
+        //   },
+        // })
         console.log(res.data.data)
         setTransactions(res.data.data.transactions)
       } catch (err) {
@@ -89,8 +103,7 @@ const User = () => {
                         <input type="text" className={transaction._id} onChange={handleChange} name="currency" id="" placeholder='currency' />
                         <input type="date" className={transaction._id} onChange={handleChange} name="time" id="" placeholder='date'/>
                         <input type="number" className={transaction._id} onChange={handleChange} name="amount" id="" placeholder='amount'/>
-                        <input type="hidden" className={transaction._id} onChange={handleChange} name="_id" id="" value={transaction._id} placeholder='amount'/>
-                        <button type='button' onClick={confirmTrans}>Confirm</button>
+                        <button className={transaction._id} type='button' onClick={confirmTrans}>Confirm</button>
                       </div>
                     ) : (
                       <div className=""></div>
