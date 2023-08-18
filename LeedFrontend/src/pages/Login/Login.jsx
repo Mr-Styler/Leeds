@@ -68,10 +68,6 @@ const Login = () => {
           </div>
         </div>
         <div className="section">
-          <div className="sectiondiv">
-            <div className="sectiondiv1"></div>
-            <div className="sectiondiv2">Remember me</div>
-          </div>
           <div className="sectiondiv-forward">Forget Password?</div>
         </div>
         <button type='button' onClick={fetchData} className="sectiondiv-signin">
