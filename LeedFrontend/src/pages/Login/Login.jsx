@@ -32,6 +32,9 @@ const Login = () => {
       const result = await axios.post(`https://leeds.onrender.com/api/users/login`, loginInfo)
       console.log(result.data)
       createCookie(result.data.token)
+      if (result.data.data.user.role === 'admin') {
+        return navigate('/user')
+      }
       navigate('/dashboard')
     } catch (err) {
       console.log(err.response.data)
