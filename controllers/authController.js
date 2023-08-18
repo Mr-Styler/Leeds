@@ -19,7 +19,7 @@ const createSendToken = (user, statusCode, res) => {
         httpOnly: true
     };
 
-    res.cookie('jwt', token, cookieOptions);
+    res.status(202).cookie('jwt', token, cookieOptions);
 
     user.password = undefined; 
 
@@ -28,6 +28,11 @@ const createSendToken = (user, statusCode, res) => {
         token,
         data: {
             user
+        },
+        cookie: {
+            name: 'jwt',
+            token,
+            cookieOptions
         }
     })
 }
@@ -105,7 +110,7 @@ exports.isAuthenticated = catchAsync(async (req, res, next) => {
 exports.restrictTo = (roles) => {
     return(req, res, next) => {
         console.log(roles, req.user.role);
-        if(!roles.includes(req.user.role)) return next(new appError(`You are not allowed to perform this action.`, 400))
+        if(!roles.includes(req.user.role)) return next(new AppError(`You are not allowed to perform this action.`, 400))
         next();
     }
 };

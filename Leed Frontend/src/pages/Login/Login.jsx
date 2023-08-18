@@ -2,14 +2,15 @@ import React from 'react';
 import axios from 'axios';
 import logo from '../../img/leeds-blue.png';
 import styles from '../../pages/Login/Login.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import Cookies from 'universal-cookie';
+import Cookies from 'universal-cookie'
 const cookies = new Cookies();
 
 const Login = () => {
-  const createCookie = () => {
-    cookies.set('jwt-cookie', 'any token', {path: '/'})
+  const navigate = useNavigate();
+  const createCookie = (token) => {
+    cookies.set('jwt', token, { path: '/', expires: new Date(new Date().getTime() + 24 * 3600 * 1000)})
   }
 
   const [loginInfo, setLoginInfo] = useState({
@@ -30,7 +31,8 @@ const Login = () => {
     try {
       const result = await axios.post(`http://localhost:1515/api/users/login`, loginInfo)
       console.log(result.data)
-      createCookie()
+      createCookie(result.data.token)
+      navigate('/dashboard')
     } catch (err) {
       console.log(err.response.data)
     }

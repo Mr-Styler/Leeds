@@ -20,7 +20,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/" element={<Home />} />
       <Route path="/user" element={<User />} />
-      <Route path="/settotal" element={<SetTotal />} />
+      <Route path="/:userId/settotal" element={<SetTotal />} />
       <Route path="/confirmed" element={<Confirmed />} />
       <Route path="/aboutus" element={<AboutUs />} />
       <Route path="/contactus" element={<ContactUs />} />

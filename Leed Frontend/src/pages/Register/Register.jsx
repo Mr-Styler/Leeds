@@ -1,9 +1,10 @@
 import { useEffect, useReducer, useState } from 'react';
 import axios from 'axios';import logo from '../../img/leeds-blue.png';
 import styles from '../../pages/Register/Register.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
+  const navigate = useNavigate();
   const [signupInfo, setSignupInfo] = useState({
     firstname: '',
     lastname: '',
@@ -23,8 +24,10 @@ const Register = () => {
 
   const fetchData = async() => {
     try {
+      console.log(signupInfo)
       const result = await axios.post(`http://localhost:1515/api/users/signup`, signupInfo)
       console.log(result.data)
+      navigate('/login')
     } catch (err) {
       console.log(err.response.data)
     }

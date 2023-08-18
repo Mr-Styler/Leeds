@@ -1,13 +1,12 @@
 const crypto = require("crypto");
 const mongoose = require("mongoose");
-const bcrypt = require("bcryptjs");
+const Account = require('./accountModel');
 const validator = require("validator");
 
 const userSchema = new mongoose.Schema({
   firstname: {
     type: String,
     trim: true,
-    unique: true,
     required: [true, `Please enter a first name`],
   },
   lastname: {
@@ -39,9 +38,9 @@ const userSchema = new mongoose.Schema({
     enum: ["user", "admin"],
     default: "user",
   },
-  acct_bal: {
-    type: Number,
-    min: 0,
+  accountId: {
+    type: mongoose.Types.ObjectId,
+    ref: 'Account'
   },
   total_profit: {
     type: Number,
@@ -70,7 +69,11 @@ const userSchema = new mongoose.Schema({
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
 
-  this.password = await bcrypt.hash(this.password, 12);
+  const userAccount = await Account.create({userId: this._id})
+
+  this.accountId = userAccount._id;
+  this.save
+  next()
 });
 
 // Check if inputed password is correct or not
@@ -78,7 +81,7 @@ userSchema.methods.correctPwd = async function (
   candidatePassword,
   userPassword
 ) {
-  return await bcrypt.compare(candidatePassword, userPassword);
+  return candidatePassword === userPassword;
 };
 
 // // checks if password was changed while being logged in

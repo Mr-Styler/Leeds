@@ -8,8 +8,10 @@ const handleCastErrorDB = err => {
 
 const handleDuplicateErrorDB = err => {
     console.log('DUPLI ERROR!!!!!!!!!!!!!!!')
+    console.log(err);
     const value = Object.values(err.keyValue)
     const message = `Duplicate field value: ${value}, please use another value!`;
+    console.log(message)
     return new AppError(message, 400)
 }
 
@@ -20,17 +22,6 @@ const handleValidationErrorDB = err => {
     const message = `Invalid input data. ${errors.join('. ')}`;
     return new AppError(message, 400)
 }
-
-const handleJWTErrorDB = err => {
-    return new AppError('Invalid token. Please log in again!', 401)
-}
-
-const handleJWTexpiredErrorDB = err => {
-    return new AppError('Your token has expired! Please log in again.', 401);
-}
-
-const handleJWTError = err => new AppError(`Invalid Token. Please log in again!`, 401)
-const handleJWTExpiredError = err => new AppError(`Your Token has expired. Please log in again!`, 401)
 
 module.exports = (err, req, res, next) => {
     err.status = err.status || 'error';
