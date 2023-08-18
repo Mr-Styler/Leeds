@@ -35,7 +35,7 @@ const Verified = () => {
       formData.append("image", image.image);
       try {
         console.log(formData, cookies.get('jwt'))
-        const result = await axios.post(`http://localhost:1515/api/transactions`, formData, {
+        const result = await axios.post(`https://leeds.onrender.com/api/transactions`, formData, {
           headers: {
             'Authorization': `Bearer ${cookies.get('jwt')}`
           }

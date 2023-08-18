@@ -25,7 +25,7 @@ const Register = () => {
   const fetchData = async() => {
     try {
       console.log(signupInfo)
-      const result = await axios.post(`http://localhost:1515/api/users/signup`, signupInfo)
+      const result = await axios.post(`https://leeds.onrender.com/api/users/signup`, signupInfo)
       console.log(result.data)
       navigate('/login')
     } catch (err) {

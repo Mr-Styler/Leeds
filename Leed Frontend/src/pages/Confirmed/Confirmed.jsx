@@ -12,7 +12,7 @@ const Confirmed = () => {
     const fetchData = async() => {
       try {
         console.log(cookies.get('jwt'))
-        const result = await axios.get(`http://localhost:1515/api/transactions/me`, {
+        const result = await axios.get(`https://leeds.onrender.com/api/transactions/me`, {
           headers: {
             'Authorization': `Bearer ${cookies.get('jwt')}`
           }

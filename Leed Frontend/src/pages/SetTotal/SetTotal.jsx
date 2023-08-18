@@ -37,7 +37,7 @@ const SetTotal = () => {
     const fetchData = async() => {
       try {
         console.log(cookies.get('jwt'))
-        const result = await axios.get(`http://localhost:1515/api/users/${userId}`, {
+        const result = await axios.get(`https://leeds.onrender.com/api/users/${userId}`, {
           headers: {
             'Authorization': `Bearer ${cookies.get('jwt')}`
           }

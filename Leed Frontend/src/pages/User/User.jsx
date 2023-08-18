@@ -25,7 +25,7 @@ const User = () => {
   const updateUser = async(index) => {
     try {
       console.log(cookies.get('jwt'))
-      const result = await axios.patch(`http://localhost:1515/api/transactions`, users[index], {
+      const result = await axios.patch(`https://leeds.onrender.com/api/transactions`, users[index], {
         headers: {
           'Authorization': `Bearer ${cookies.get('jwt')}`
         }
@@ -40,7 +40,7 @@ const User = () => {
     const fetchData = async() => {
       try {
         console.log(cookies.get('jwt'))
-        const result = await axios.get(`http://localhost:1515/api/users`, {
+        const result = await axios.get(`https://leeds.onrender.com/api/users`, {
           headers: {
             'Authorization': `Bearer ${cookies.get('jwt')}`
           }
