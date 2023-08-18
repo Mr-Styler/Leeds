@@ -10,22 +10,27 @@ const User = () => {
   const [users, setUsers] = useState([]);
   let count = 0
 
-  const handleChange = (e) => {
-    const { className, value, name } = e.target
+  // const handleChange = (e) => {
+  //   const { className, value, name } = e.target
 
-    console.log()
+  //   console.log()
 
-    setUsers((prev) => {
-      console.log(prev)
-      return {...prev[className.split(' ')[1]], [name]: value}
-    })
+  //   setUsers((prev) => {
+  //     console.log(prev)
+  //     return {...prev[className.split(' ')[1]], [name]: value}
+  //   })
 
-  }
+  // }
 
   const updateUser = async(index) => {
     try {
       console.log(cookies.get('jwt'))
-      const result = await axios.patch(`https://leeds.onrender.com/api/transactions`, users[index], {
+      // const result = await axios.patch(`https://leeds.onrender.com/api/transactions`, users[index], {
+      //   headers: {
+      //     'Authorization': `Bearer ${cookies.get('jwt')}`
+      //   }
+      // })
+      const result = await axios.patch(`http://localhost:1515/api/transactions`, users[index], {
         headers: {
           'Authorization': `Bearer ${cookies.get('jwt')}`
         }
@@ -40,7 +45,12 @@ const User = () => {
     const fetchData = async() => {
       try {
         console.log(cookies.get('jwt'))
-        const result = await axios.get(`https://leeds.onrender.com/api/users`, {
+        // const result = await axios.get(`https://leeds.onrender.com/api/users`, {
+        //   headers: {
+        //     'Authorization': `Bearer ${cookies.get('jwt')}`
+        //   }
+        // })
+        const result = await axios.get(`http://localhost:1515/api/users`, {
           headers: {
             'Authorization': `Bearer ${cookies.get('jwt')}`
           }
@@ -69,9 +79,6 @@ const User = () => {
                 {user.firstname}
               </Link>
               <div className="user-input">
-                <input className={`user-input1 ${count}`} onChange={handleChange} placeholder="Date" />
-                <input className={`user-input1 ${count}`} onChange={handleChange} placeholder="Currency" />
-                <input className={`user-input1 ${count}`} onChange={handleChange} placeholder="Amount" />
                 <button type='button' onClick={updateUser(count)}>send</button>
               </div>
             </div>
