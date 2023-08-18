@@ -223,7 +223,7 @@ const Home = () => {
             </div>
           </div>
           <div class="last">
-            <h5 class="h5">&copy; Copyright 2023 Leed Broker Age</h5>
+            <h5 class="h5">&copy; Copyright 2023</h5>
           </div>
         </div>
       </footer>
