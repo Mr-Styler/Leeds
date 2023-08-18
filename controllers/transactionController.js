@@ -71,6 +71,16 @@ exports.getMyTransactions = catchAsync(async (req, res, next) => {
     })
 })
 
+exports.getPending = catchAsync(async (req, res, next) => {
+    const transactions = await Transaction.find({status: 'pending'});
+
+    res.status(200).json({
+        status: 'success',
+        data: {
+            transactions
+        }
+    })
+});
 
 // Updates one Transaction in the Database
 exports.updateTransaction = catchAsync(async (req, res, next) => {

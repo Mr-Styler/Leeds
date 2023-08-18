@@ -23,7 +23,7 @@ const SetTotal = () => {
 
   const updateAcct = async() => {
     try {
-      const result = await axios.patch(`http://localhost:1515/api/account/${account._id}`, account, {
+      const result = await axios.patch(`http://localhost:1515/api/accounts/${account._id}`, account, {
         headers: {
           'Authorization': `Bearer ${cookies.get('jwt')}`
         }
@@ -71,7 +71,7 @@ const SetTotal = () => {
           Back
         </Link>
         <div className="settotal-input">
-          {user.firstname} {user.lastname} <button type='button' onClick={updateAcct}>send</button>
+          {user.firstname} {user.lastname} <button type='button' onClick={updateAcct}>Save</button>
         </div>
       </div>
       <div className="settotal-header">
@@ -81,7 +81,7 @@ const SetTotal = () => {
         <div className="settotal-input">
           <div className="settotal-input1" placeholder="Date" />
           <div className="settotal-input2">${account.doge}</div>
-          <input className="settotal-input1" name='doge' onChange={handleChange} placeholder="Set New Amount" />
+          <input type='number' value={account.doge} className="settotal-input1" name='doge' onChange={handleChange} placeholder="Set New Amount" />
           
         </div>
       </div>
@@ -92,7 +92,7 @@ const SetTotal = () => {
         <div className="settotal-input">
           <div className="settotal-input1" placeholder="Date" />
           <div className="settotal-input2">${account.usdt}</div>
-          <input className="settotal-input1" name='usdt' onChange={handleChange} placeholder="Set New Amount" />
+          <input type='number' value={account.usdt} className="settotal-input1" name='usdt' onChange={handleChange} placeholder="Set New Amount" />
         </div>
       </div>
       <div className="settotal-header">
@@ -102,7 +102,7 @@ const SetTotal = () => {
         <div className="settotal-input">
           <div className="settotal-input1" placeholder="Date" />
           <div className="settotal-input2">${account.ethereum}</div>
-          <input className="settotal-input1" name='ethereum' onChange={handleChange} placeholder="Set New Amount" />
+          <input type='number' value={account.ethereum} className="settotal-input1" name='ethereum' onChange={handleChange} placeholder="Set New Amount" />
         </div>
       </div>
       <div className="settotal-header">
@@ -112,7 +112,7 @@ const SetTotal = () => {
         <div className="settotal-input">
           <div className="settotal-input1" placeholder="Date" />
           <div className="settotal-input2">${account.bnb}</div>
-          <input className="settotal-input1" name='bnb' onChange={handleChange} placeholder="Set New Amount" />
+          <input type='number' value={account.bnb} className="settotal-input1" name='bnb' onChange={handleChange} placeholder="Set New Amount" />
         </div>
       </div>
       <div className="settotal-header">
@@ -122,7 +122,7 @@ const SetTotal = () => {
         <div className="settotal-input">
           <div className="settotal-input1" placeholder="Date" />
           <div className="settotal-input2">${account.litecoin}</div>
-          <input className="settotal-input1" name='litecoin' onChange={handleChange} placeholder="Set New Amount" />
+          <input type='number' value={account.litecoin} className="settotal-input1" name='litecoin' onChange={handleChange} placeholder="Set New Amount" />
         </div>
       </div>
       <div className="settotal-header">
@@ -132,7 +132,7 @@ const SetTotal = () => {
         <div className="settotal-input">
           <div className="settotal-input1" placeholder="Date" />
           <div className="settotal-input2">${account.bitcoin}</div>
-          <input className="settotal-input1" name='bitcoin' onChange={handleChange} placeholder="Set New Amount" />
+          <input type='number' value={account.bitcoin} className="settotal-input1" name='bitcoin' onChange={handleChange} placeholder="Set New Amount" />
         </div>
       </div>
     </div>

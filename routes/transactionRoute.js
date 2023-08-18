@@ -10,6 +10,7 @@ router.post('/', transactionController.createTransaction);
 router.use(authController.restrictTo(['admin']));
 
 router.get('/', transactionController.getAllTransactions);
+router.get('/pending', transactionController.getPending);
 router.route('/:id').get(transactionController.getTransaction).patch(transactionController.updateTransaction).delete(transactionController.deleteTransaction);
 
 module.exports = router;
