@@ -76,7 +76,7 @@ const Home = () => {
             </div>
           </div>
           <div className="section-div5">
-            <div className="section-div5-a">Panterascapitals has it</div>
+            <div className="section-div5-a">Leedsbrokerage has it</div>
             <div className="section-div5-a1">all.</div>
           </div>
           <div className="section-div6">
@@ -200,8 +200,8 @@ const Home = () => {
             <div className="section-div-4c-1a-2">
               <div className="section-div-4c-1a-2a">
                 START your trading journey with world class experts.
-                Panterscapitals trades is here to serve you with the best
-                trading services you can imagine. YOUR PROFITS IS OUR PRIORITY.
+                Leedsbrokerage trades is here to serve you with the best trading
+                services you can imagine. YOUR PROFITS IS OUR PRIORITY.
               </div>
               <Link to="/register" className="section-div-4c-1a-2b">
                 SIGN UP NOW
@@ -216,10 +216,6 @@ const Home = () => {
             <div class="address-left">
               <h3 class="eight-h1">Email Us</h3>
               <h5>leedsbrokerage@gmail.com</h5>
-            </div>
-            <div class="address-right">
-              <h3 class="eight-h1">Call Us</h3>
-              <h5>+1 (678) 632-5339</h5>
             </div>
           </div>
           <div class="last">

@@ -2,10 +2,10 @@
   background-color: whitesmoke;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   height: 100vh;
   gap: 30px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .user-header {
@@ -29,4 +29,50 @@
   color: var(--color-mediumslateblue-100);
   font-weight: bold;
   cursor: pointer;
+}
+
+.uuser-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bolder;
+  margin-bottom: 20px;
+  font-size: 40px;
+}
+
+@media screen and (max-width: 550px) {
+  .user-header {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 70%;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 60px;
+    border-radius: 17px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.164);
+    height: fit-content;
+  }
+  .user-main-input {
+    display: flex;
+    gap: 10px;
+  }
+  .uuser-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bolder;
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
+  .in {
+    width: 120px;
+  }
 }

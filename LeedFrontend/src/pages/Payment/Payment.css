@@ -3,8 +3,18 @@
   background-color: whitesmoke;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  width: 100%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.payheader {
+  background-color: rgba(37, 47, 189, 0.89);
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-bottom-left-radius: 100px;
 }
 
 .copy-link {
@@ -30,6 +40,7 @@
 
 .payment-bitcoin {
   display: flex;
+  color: white;
 }
 
 .payment-align {
@@ -39,4 +50,108 @@
 .copy-link-input {
   display: flex;
   border: 0px;
+}
+
+.paynav1 {
+  padding-left: 60px;
+}
+
+.paysection {
+  display: flex;
+  gap: 300px;
+}
+.pay-copy-link {
+  background-color: whitesmoke;
+  width: 1000px;
+  position: relative;
+  bottom: 200px;
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 45px;
+  justify-content: space-between;
+  margin-left: 300px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.pay-copylink {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 139, 0.76);
+  padding: 20px 20px;
+  width: 70%;
+}
+
+.paycopy-link-input {
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+.paysection1 {
+  padding-left: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.paysection2 {
+  margin-top: 20px;
+  padding-left: 50px;
+  background-color: rgba(0, 0, 139, 0.76);
+}
+
+@media screen and (max-width: 913px) {
+  .pay-copy-link {
+    background-color: whitesmoke;
+    width: 450px;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 45px;
+    justify-content: space-between;
+    margin-left: 300px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .pay-copy-link {
+    background-color: whitesmoke;
+    width: 400px;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 45px;
+    justify-content: space-between;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  .paysection {
+    margin-top: 200px;
+    margin-right: 300px;
+  }
+  .payheader {
+    background-color: rgba(37, 47, 189, 0.89);
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-bottom-left-radius: 100px;
+  }
+  .pay-copylink {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 139, 0.76);
+    padding: 20px 20px;
+    width: 70%;
+    border-radius: 10px;
+  }
 }

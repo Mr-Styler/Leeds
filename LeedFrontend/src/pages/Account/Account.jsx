@@ -2,41 +2,53 @@ import React, { useEffect, useState } from 'react';
 import styles from '../../pages/Account/Account.css';
 import dashlogo from '../../img/leeds-blue.png';
 import axios from 'axios';
-import Cookies from 'universal-cookie'
-const cookies = new Cookies()
+import profile from '../../img/staff-3.jpg';
+import Cookies from 'universal-cookie';
+const cookies = new Cookies();
 
 const Account = () => {
   // Get user's account
   const [account, setAccount] = useState({});
 
   useEffect(() => {
-    const fetchData = async() => {
+    const fetchData = async () => {
       try {
-        console.log(cookies.get('jwt'))
-        const result = await axios.get(`https://leeds.onrender.com/api/accounts/me`, {
-          headers: {
-            'Authorization': `Bearer ${cookies.get('jwt')}`
+        console.log(cookies.get('jwt'));
+        const result = await axios.get(
+          `https://leeds.onrender.com/api/accounts/me`,
+          {
+            headers: {
+              Authorization: `Bearer ${cookies.get('jwt')}`,
+            },
           }
-        })
+        );
         // const result = await axios.get(`http://localhost:1515/api/accounts/me`, {
         //   headers: {
         //     'Authorization': `Bearer ${cookies.get('jwt')}`
         //   }
         // })
-        console.log(result.data.data.account)
-        setAccount(result.data.data.account)
+        console.log(result.data.data.account);
+        setAccount(result.data.data.account);
       } catch (err) {
-        console.log(err.response.data)
+        console.log(err.response.data);
       }
-    }
+    };
 
-    fetchData()
+    fetchData();
   }, []);
 
-  
   return (
     <div className="account-dashboard">
-      <img className="dashlogo" src={dashlogo} />
+      <div className="navheader">
+        <div className="nav">
+          <img className="dashlogo" src={dashlogo} />
+          <div className="dashlogout">Log Out</div>
+        </div>
+        <div className="dashnav1">
+          <img className="dashnav2" src={profile} />
+          <div className="dashnav3">HOME</div>
+        </div>
+      </div>
       <div className="account">
         <div className="account1">
           <div className="account1a">DOGE</div>

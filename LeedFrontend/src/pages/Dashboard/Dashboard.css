@@ -1,10 +1,10 @@
 .dashboard-container {
-  background-color: whitesmoke;
   width: 100%;
-  height: 100vh;
+  height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .dashboard-name {
@@ -18,23 +18,75 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 100px;
-  background-color: whitesmoke;
+  gap: 50px;
+  background-color: transparent;
   width: 100%;
-  height: fit-content;
+  height: auto;
+  padding-bottom: 30px;
 }
 
 .dashboard-1 {
-  height: 250px;
+  margin-top: 40px;
+  color: rgba(0, 0, 139, 0.096);
+  height: 150px;
   width: 250px;
-  border-radius: 200px;
+  border-radius: 20px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 40px;
-  background-color: white;
+  background-color: rgba(0, 0, 139, 0.747);
+  box-shadow: 4px 24px 24px rgba(0, 0, 0, 0.884);
+}
+
+.dashnav1-name {
+  font-weight: bolder;
+  font-size: 30px;
+  color: white;
+  padding-bottom: 40px;
+}
+
+.dashboard-1b {
+  height: 100px;
+  width: 100px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 40px;
+  background-color: rgba(0, 0, 139, 0.747);
+  box-shadow: 4px 24px 24px rgba(0, 0, 0, 0.432);
+}
+
+.dashboard-1c {
+  height: 100px;
+  width: 100px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 40px;
+  background-color: rgba(0, 0, 139, 0.747);
+  box-shadow: 4px 24px 24px rgba(0, 0, 0, 0.397);
+}
+
+.dashboard-1d {
+  height: 100px;
+  width: 100px;
+  border-radius: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 40px;
+  background-color: rgba(0, 0, 139, 0.747);
   box-shadow: 4px 24px 24px rgba(0, 0, 0, 0.432);
 }
 
@@ -46,11 +98,138 @@
 .dashboard-3 {
   font-size: 20px;
   font-weight: bold;
-  color: black;
+  color: white;
 }
 
 .dashlogo {
+  width: 100px;
+  margin-right: 700px;
+  color: var(--color-mediumslateblue-100);
+  text-decoration: none;
+  background-color: white;
+  display: flex;
+  border-radius: 6px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 20px;
+}
+
+.dashlogout {
+  color: var(--color-mediumslateblue-100);
+  text-decoration: none;
+  background-color: white;
+  width: 200px;
+  height: 40px;
+  display: flex;
+  border-radius: 6px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav {
+  justify-content: space-between;
+  display: flex;
+  width: 90%;
+}
+
+.navheader {
+  background-color: rgba(37, 47, 189, 0.89);
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-bottom-left-radius: 100px;
+}
+
+.dashnav1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dashnav2 {
+  height: 150px;
   width: 150px;
-  margin-bottom: 100px;
-  padding-top: 50px;
+  border-radius: 100px;
+  margin-bottom: 50px;
+}
+
+.dashnav3 {
+  color: rgba(37, 47, 189, 0.89);
+  text-decoration: none;
+  background-color: white;
+  width: 150px;
+  height: 40px;
+  display: flex;
+  border-radius: 6px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 913px) {
+  .nav {
+    justify-content: space-between;
+    display: flex;
+    width: 90%;
+  }
+
+  .dashlogo {
+    width: 100px;
+    margin-right: 350px;
+    color: var(--color-mediumslateblue-100);
+    text-decoration: none;
+    background-color: white;
+    display: flex;
+    border-radius: 6px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px;
+  }
+}
+
+@media screen and (max-width: 913px) {
+  .nav {
+    justify-content: space-between;
+    display: flex;
+    width: 80%;
+  }
+
+  .dashlogo {
+    width: 80px;
+    margin-right: 150px;
+    color: var(--color-mediumslateblue-100);
+    text-decoration: none;
+    background-color: white;
+    display: flex;
+    border-radius: 6px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 10px;
+  }
+  .dashboard-1 {
+    margin-top: 40px;
+    color: rgba(0, 0, 139, 0.096);
+    height: 150px;
+    width: 150px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+    background-color: rgba(0, 0, 139, 0.747);
+    box-shadow: 4px 24px 24px rgba(0, 0, 0, 0.479);
+  }
+  .dashnav2 {
+    height: 120px;
+    width: 120px;
+  }
 }

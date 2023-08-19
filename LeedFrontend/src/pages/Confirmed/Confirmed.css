@@ -6,6 +6,23 @@
   justify-content: center;
   flex-direction: column;
   gap: 40px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.comnav-header {
+  background-color: rgba(37, 47, 189, 0.89);
+  width: 94.4%;
+  margin-top: -260px;
+  padding-top: 100px;
+  padding-left: 80px;
+  border-bottom-left-radius: 100px;
+}
+
+.comnav {
+  justify-content: space-between;
+  display: flex;
+  width: 90%;
+  margin-bottom: 100px;
 }
 
 .cofirmed-header {
@@ -17,13 +34,12 @@
   align-items: center;
   padding-left: 30px;
   padding-right: 30px;
-  border-radius: 17px;
   box-shadow: 0 20px 35px rgba(0, 0, 0, 0.185);
 }
 
 .confirmed-1a {
   font-weight: bold;
-  color: var(--color-mediumslateblue-100);
+  color: rgba(37, 47, 189, 0.89);
   margin-bottom: 10px;
 }
 

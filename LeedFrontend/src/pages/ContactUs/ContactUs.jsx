@@ -45,13 +45,6 @@ const ContactUs = () => {
         </div>
         <div className="contactus-4">
           <div className="contactus-5">Get In Touch</div>
-          <div className="contactus-6">
-            <div className="contactus-7">Reach Us</div>
-            <div className="contactus-8">
-              500 Terry Francios Street San Francisco, CA 94158
-            </div>
-            <div className="contactus-9">support@panterascapitals.com</div>
-          </div>
         </div>
       </div>
       <div className="contactus-here">
@@ -62,7 +55,7 @@ const ContactUs = () => {
           <div className="contact-session-div-4c-1a-2">
             <div className="contact-session-div-4c-1a-2a">
               START your trading journey with world class experts.
-              Panterscapitals trades is here to serve you with the best trading
+              Leedsbrokerage trades is here to serve you with the best trading
               services you can imagine. YOUR PROFITS IS OUR PRIORITY.
             </div>
             <Link to="/register" className="contact-session-div-4c-1a-2b">
@@ -77,10 +70,6 @@ const ContactUs = () => {
             <div class="address-left">
               <h3 class="eight-h1">Email Us</h3>
               <h5>leedsbrokerage@gmail.com</h5>
-            </div>
-            <div class="address-right">
-              <h3 class="eight-h1">Call Us</h3>
-              <h5>+1 (678) 632-5339</h5>
             </div>
           </div>
           <div class="last">

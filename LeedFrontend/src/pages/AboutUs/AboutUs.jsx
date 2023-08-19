@@ -34,7 +34,7 @@ export const AboutUs = () => {
               We help you grow your investments
             </div>
             <div className="about-article-div3">
-              With a full driving force team of experts, panterascapitals has
+              With a full driving force team of experts, leedsbrokerage has
               proven that we are
             </div>
             <div className="about-article-div4">
@@ -83,26 +83,6 @@ export const AboutUs = () => {
             <div className="features3">Customer support</div>
             <div>We keep an eye on your requests, pains and suggestions.</div>
           </div>
-          <div className="features1">
-            <div className="features2">02.</div>
-            <div className="features3">Customer support</div>
-            <div>We keep an eye on your requests, pains and suggestions.</div>
-          </div>
-          <div className="features1">
-            <div className="features2">02.</div>
-            <div className="features3">Customer support</div>
-            <div>We keep an eye on your requests, pains and suggestions.</div>
-          </div>
-          <div className="features1">
-            <div className="features2">02.</div>
-            <div className="features3">Customer support</div>
-            <div>We keep an eye on your requests, pains and suggestions.</div>
-          </div>
-          <div className="features1">
-            <div className="features2">02.</div>
-            <div className="features3">Customer support</div>
-            <div>We keep an eye on your requests, pains and suggestions.</div>
-          </div>
         </div>
       </div>
       <div className="about-section">
@@ -116,7 +96,7 @@ export const AboutUs = () => {
             <div className="about-section4a">
               <div className="about-section4b">Easy setup</div>
               <div className="about-section4c">
-                Using panterascapitals, you can totally set upp your acount in
+                Using leedsbrokerage, you can totally set upp your acount in
                 seconds without any hassle. Get started in seconds and enjoy the
                 best trading profits.
               </div>
@@ -137,7 +117,7 @@ export const AboutUs = () => {
           <div className="section-div-4c-1a-2">
             <div className="section-div-4c-1a-2a">
               START your trading journey with world class experts.
-              Panterscapitals trades is here to serve you with the best trading
+              Leedsbrokerage trades is here to serve you with the best trading
               services you can imagine. YOUR PROFITS IS OUR PRIORITY.
             </div>
             <Link to="/register" className="section-div-4c-1a-2b">
@@ -151,21 +131,7 @@ export const AboutUs = () => {
           <div class="contact-div">
             <div class="address-left">
               <h3 class="eight-h1">Email Us</h3>
-              <h5>help@rabboni.com</h5>
-              <h5>info@rabboni.com</h5>
-            </div>
-            <div class="address-right">
-              <h3 class="eight-h1">Call Us</h3>
-              <h5>+2349030988342</h5>
-              <h5>+2349156253293</h5>
-              <h5>+2348144135127</h5>
-            </div>
-            <div class="address">
-              <h3 class="eight-h1">Our Address</h3>
-              <p class="p8">
-                Elzazi complex, Opposite Westharm petrol station along
-                gbalajam/Akpajo road, woji ( Odili Road, Port-Harcourt)
-              </p>
+              <h5>leedsbrokerage@gmail.com</h5>
             </div>
           </div>
           <div class="last">
