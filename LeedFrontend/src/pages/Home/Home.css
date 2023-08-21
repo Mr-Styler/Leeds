@@ -494,6 +494,7 @@ h2 {
     cursor: pointer;
     align-items: center;
     justify-content: center;
+    font-size: 14px;
   }
 
   .nav {

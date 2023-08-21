@@ -85,31 +85,31 @@ const User = () => {
     const fetchData = async () => {
       try {
         console.log(cookies.get('jwt'));
-        // const result = await axios.get(`https://leeds.onrender.com/api/users`, {
-        //   headers: {
-        //     Authorization: `Bearer ${cookies.get('jwt')}`,
-        //   },
-        // });
-        const result = await axios.get(`http://localhost:1515/api/users`, {
+        const result = await axios.get(`https://leeds.onrender.com/api/users`, {
           headers: {
-            'Authorization': `Bearer ${cookies.get('jwt')}`
-          }
-        })
+            Authorization: `Bearer ${cookies.get('jwt')}`,
+          },
+        });
+        // const result = await axios.get(`http://localhost:1515/api/users`, {
+        //   headers: {
+        //     'Authorization': `Bearer ${cookies.get('jwt')}`
+        //   }
+        // })
         console.log(result.data.data.users);
         setUsers(result.data.data.users);
-        // const res = await axios.get(
-        //   `https://leeds.onrender.com/transactions/pending`,
-        //   {
-        //     headers: {
-        //       Authorization: `Bearer ${cookies.get('jwt')}`,
-        //     },
-        //   }
-        // );
-        const res = await axios.get(`http://localhost:1515/api/transactions/pending`, {
-          headers: {
-            'Authorization': `Bearer ${cookies.get('jwt')}`
-          },
-        })
+        const res = await axios.get(
+          `https://leeds.onrender.com/api/transactions/pending`,
+          {
+            headers: {
+              Authorization: `Bearer ${cookies.get('jwt')}`,
+            },
+          }
+        );
+        // const res = await axios.get(`http://localhost:1515/api/transactions/pending`, {
+        //   headers: {
+        //     'Authorization': `Bearer ${cookies.get('jwt')}`
+        //   },
+        // })
         console.log(res.data.data);
         setTransactions(res.data.data.transactions);
       } catch (err) {
