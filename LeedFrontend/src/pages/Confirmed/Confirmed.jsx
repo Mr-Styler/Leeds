@@ -9,6 +9,28 @@ const cookies = new Cookies();
 const Confirmed = () => {
   const [transactions, setTransactions] = useState([]);
 
+  const logout = async() => {
+    // destroy cookie  in browser
+    const result = await axios.get(
+          `https://leeds.onrender.com/api/users/logout`,
+          {
+            headers: {
+              Authorization: `Bearer ${cookies.get('jwt')}`,
+            },
+          }
+        );
+        // const result = await axios.get(`http://localhost:1515/api/users/logout`, {
+        //   headers: {
+        //     'Authorization': `Bearer ${cookies.get('jwt')}`
+        //   }
+        // })
+        if (result.data.status === 'success') {
+          cookies.remove('jwt');
+        }
+        console.log(result.data.message)
+    // destroy token in server
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -41,11 +63,16 @@ const Confirmed = () => {
       <div className="comnav-header">
         <div className="comnav">
           <img className="dashlogo" src={dashlogo} />
-          <div className="dashlogout">Log Out</div>
+          {(cookies.get('jwt')) ? (
+              <div className="dashlogout" onClick={logout}>Log Out</div>
+            ) : (
+              <div className=""></div>
+            )}
+
         </div>
         <div className="dashnav1">
           <img className="dashnav2" src={profile} />
-          <div className="dashnav3">HISTOTY</div>
+          <div className="dashnav3">HISTORY</div>
         </div>
       </div>
 
@@ -53,7 +80,7 @@ const Confirmed = () => {
         <div key={transaction._id} className="cofirmed-header">
           <div className="confirmed-1">
             <div className="confirmed-1a">Time</div>
-            <div className="confirmed-1b">20-1-22</div>
+            <div className="confirmed-1b">{transaction.time}</div>
           </div>
           <div className="confirmed-1">
             <div className="confirmed-1a">{transaction.currency}</div>
@@ -64,20 +91,6 @@ const Confirmed = () => {
           </div>
         </div>
       ))}
-
-      <div className="cofirmed-header">
-        <div className="confirmed-1">
-          <div className="confirmed-1a">Time</div>
-          <div className="confirmed-1b">20-1-22</div>
-        </div>
-        <div className="confirmed-1">
-          <div className="confirmed-1a">Bitcoin</div>
-          <div className="confirmed-1b">58888.585777.4444</div>
-        </div>
-        <div className="confirmed-3">
-          <div className="confirmed-3a">Successful</div>
-        </div>
-      </div>
     </div>
   );
 };

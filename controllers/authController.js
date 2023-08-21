@@ -21,7 +21,7 @@ const createSendToken = (user, statusCode, res) => {
 
     res.status(202).cookie('jwt', token, cookieOptions);
 
-    user.password = undefined; 
+    user.password = undefined;
 
     res.status(statusCode).json({
         status: "success",
@@ -104,7 +104,25 @@ exports.isAuthenticated = catchAsync(async (req, res, next) => {
 
     req.user = freshUser;
     next();
-})
+});
+
+exports.logout = (req, res, next) => {
+    let token;
+    if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
+        token = req.headers.authorization.split(' ')[1];
+    }
+
+    if (!token) {
+        return res.status(401).json({
+            status: 'failed',
+            message: 'Authorization failed'
+        })
+    }
+    res.status(200).json({
+        status: 'success',
+        message: `You've successfully logged out.`
+    })
+}
 
 // Allowed type of user
 exports.restrictTo = (roles) => {
@@ -156,3 +174,17 @@ exports.resetPwd = catchAsync(async (req, res, next) => {
 
 
 // logout
+exports.getMe = catchAsync(async (req, res, next) => {
+    const user = await User.findById(req.user._id);
+
+    if (!user) {
+        return next(new AppError('No user found with this Id.'))
+    }
+
+    res.status(200).json({
+        status: 'success',
+        data: {
+            user
+        }
+    })
+});

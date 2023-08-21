@@ -16,6 +16,28 @@ const SetTotal = () => {
   const [user, setUser] = useState({});
   const [account, setAccount] = useState({});
 
+  const logout = async() => {
+    // destroy cookie  in browser
+    // const result = await axios.get(
+        //   `https://leeds.onrender.com/api/users/logout`,
+        //   {
+        //     headers: {
+        //       Authorization: `Bearer ${cookies.get('jwt')}`,
+        //     },
+        //   }
+        // );
+        const result = await axios.get(`http://localhost:1515/api/users/logout`, {
+          headers: {
+            'Authorization': `Bearer ${cookies.get('jwt')}`
+          }
+        })
+        if (result.data.status === 'success') {
+          cookies.remove('jwt');
+        }
+        console.log(result.data.message)
+    // destroy token in server
+  }
+
   const handleChange = (e) => {
     const { value, name } = e.target;
 
@@ -45,19 +67,19 @@ const SetTotal = () => {
     const fetchData = async () => {
       try {
         console.log(cookies.get('jwt'));
-        const result = await axios.get(
-          `https://leeds.onrender.com/api/users/${userId}`,
-          {
-            headers: {
-              Authorization: `Bearer ${cookies.get('jwt')}`,
-            },
-          }
-        );
-        // const result = await axios.get(`http://localhost:1515/api/users/${userId}`, {
-        //   headers: {
-        //     'Authorization': `Bearer ${cookies.get('jwt')}`
+        // const result = await axios.get(
+        //   `https://leeds.onrender.com/api/users/${userId}`,
+        //   {
+        //     headers: {
+        //       Authorization: `Bearer ${cookies.get('jwt')}`,
+        //     },
         //   }
-        // })
+        // );
+        const result = await axios.get(`http://localhost:1515/api/users/${userId}`, {
+          headers: {
+            'Authorization': `Bearer ${cookies.get('jwt')}`
+          }
+        })
         setUser(result.data.data.user);
         const acct = await axios.get(
           `https://leeds.onrender.com/api/accounts/${result.data.data.user.accountId}`,
@@ -85,9 +107,13 @@ const SetTotal = () => {
   return (
     <div className="settotal-container">
       <div className="navheader">
-        <div className="nav">
+      <div className="nav">
           <img className="dashlogo" src={dashlogo} />
-          <div className="dashlogout">Log Out</div>
+          {(cookies.get('jwt')) ? (
+              <div className="dashlogout" onClick={logout}>Log Out</div>
+            ) : (
+              <div className=""></div>
+            )}
         </div>
         <div className="dashnav1">
           <div className="dashnav1-name">ADMIN</div>

@@ -7,9 +7,12 @@ router.post('/signup', authController.passwordCheck, authController.register);
 router.post('/login', authController.login);
 router.post('/forgot', authController.forgotPwd);
 router.patch('/reset/:token', authController.passwordCheck, authController.resetPwd);
+router.get('/logout', authController.logout);
+
 
 // Routes that can only be accessed when logged in
 router.use(authController.isAuthenticated, authController.restrictTo(['admin']));
+router.get('/me', authController.getMe);
 
 router.get('/', userController.getAllUsers);
 router.route('/:id').get(userController.getUser).patch(userController.updateUser).delete(userController.deleteUser);

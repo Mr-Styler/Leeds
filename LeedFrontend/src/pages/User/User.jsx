@@ -13,6 +13,29 @@ const User = () => {
   const [transactions, setTransactions] = useState([]);
   let count = 0;
 
+  const logout = async() => {
+    // destroy cookie  in browser
+    const result = await axios.get(
+          `https://leeds.onrender.com/api/users/logout`,
+          {
+            headers: {
+              Authorization: `Bearer ${cookies.get('jwt')}`,
+            },
+          }
+        );
+        // const result = await axios.get(`http://localhost:1515/api/users/logout`, {
+        //   headers: {
+        //     'Authorization': `Bearer ${cookies.get('jwt')}`
+        //   }
+        // })
+        if (result.data.status === 'success') {
+          cookies.remove('jwt');
+        }
+        console.log(result.data.message)
+    // destroy token in server
+  }
+
+
   const handleChange = (e) => {
     const { className, value, name } = e.target;
     const newState = transactions.map((obj) => {
@@ -62,31 +85,31 @@ const User = () => {
     const fetchData = async () => {
       try {
         console.log(cookies.get('jwt'));
-        const result = await axios.get(`https://leeds.onrender.com/api/users`, {
-          headers: {
-            Authorization: `Bearer ${cookies.get('jwt')}`,
-          },
-        });
-        // const result = await axios.get(`http://localhost:1515/api/users`, {
+        // const result = await axios.get(`https://leeds.onrender.com/api/users`, {
         //   headers: {
-        //     'Authorization': `Bearer ${cookies.get('jwt')}`
-        //   }
-        // })
+        //     Authorization: `Bearer ${cookies.get('jwt')}`,
+        //   },
+        // });
+        const result = await axios.get(`http://localhost:1515/api/users`, {
+          headers: {
+            'Authorization': `Bearer ${cookies.get('jwt')}`
+          }
+        })
         console.log(result.data.data.users);
         setUsers(result.data.data.users);
-        const res = await axios.get(
-          `https://leeds.onrender.com/transactions/pending`,
-          {
-            headers: {
-              Authorization: `Bearer ${cookies.get('jwt')}`,
-            },
-          }
-        );
-        // const res = await axios.get(`http://localhost:1515/api/transactions/pending`, {
-        //   headers: {
-        //     'Authorization': `Bearer ${cookies.get('jwt')}`
-        //   },
-        // })
+        // const res = await axios.get(
+        //   `https://leeds.onrender.com/transactions/pending`,
+        //   {
+        //     headers: {
+        //       Authorization: `Bearer ${cookies.get('jwt')}`,
+        //     },
+        //   }
+        // );
+        const res = await axios.get(`http://localhost:1515/api/transactions/pending`, {
+          headers: {
+            'Authorization': `Bearer ${cookies.get('jwt')}`
+          },
+        })
         console.log(res.data.data);
         setTransactions(res.data.data.transactions);
       } catch (err) {
@@ -100,9 +123,13 @@ const User = () => {
   return (
     <div className="user-container">
       <div className="navheader">
-        <div className="nav">
+      <div className="nav">
           <img className="dashlogo" src={dashlogo} />
-          <div className="dashlogout">Log Out</div>
+          {(cookies.get('jwt')) ? (
+              <div className="dashlogout" onClick={logout}>Log Out</div>
+            ) : (
+              <div className=""></div>
+            )}
         </div>
         <div className="dashnav1">
           <div className="dashnav1-name">ADMIN</div>
@@ -117,32 +144,30 @@ const User = () => {
           <div className="">
             {transactions.map((transaction) =>
               transaction.userId === user._id ? (
-                <div className="">
+              <div className="user-input">
+                <div className="user-main-input">
                   <input
                     type="text"
                     onChange={handleChange}
                     name="currency"
                     id=""
                     placeholder="currency"
+                    className="in"
                   />
-                  <input
-                    type="date"
-                    onChange={handleChange}
-                    name="time"
-                    id=""
-                    placeholder="date"
-                  />
+
                   <input
                     type="number"
                     onChange={handleChange}
                     name="amount"
                     id=""
                     placeholder="amount"
+                    className="in"
                   />
                   <button type="button" onClick={confirmTrans}>
                     Confirm
                   </button>
                 </div>
+              </div>
               ) : (
                 <div className=""></div>
               )
@@ -150,35 +175,6 @@ const User = () => {
           </div>
         </div>
       ))}
-      <div className="user-header">
-        <Link to={`/234567/settotal`} className="user-name">
-          John
-        </Link>
-        <div className="user-input">
-          <div className="user-main-input">
-            <input
-              type="text"
-              onChange={handleChange}
-              name="currency"
-              id=""
-              placeholder="currency"
-              className="in"
-            />
-
-            <input
-              type="number"
-              onChange={handleChange}
-              name="amount"
-              id=""
-              placeholder="amount"
-              className="in"
-            />
-            <button type="button" onClick={confirmTrans}>
-              Confirm
-            </button>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };

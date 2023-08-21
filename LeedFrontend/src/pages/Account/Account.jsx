@@ -10,6 +10,28 @@ const Account = () => {
   // Get user's account
   const [account, setAccount] = useState({});
 
+  const logout = async() => {
+    // destroy cookie  in browser
+    // const result = await axios.get(
+        //   `https://leeds.onrender.com/api/users/logout`,
+        //   {
+        //     headers: {
+        //       Authorization: `Bearer ${cookies.get('jwt')}`,
+        //     },
+        //   }
+        // );
+        const result = await axios.get(`http://localhost:1515/api/users/logout`, {
+          headers: {
+            'Authorization': `Bearer ${cookies.get('jwt')}`
+          }
+        })
+        if (result.data.status === 'success') {
+          cookies.remove('jwt');
+        }
+        console.log(result.data.message)
+    // destroy token in server
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -42,11 +64,15 @@ const Account = () => {
       <div className="navheader">
         <div className="nav">
           <img className="dashlogo" src={dashlogo} />
-          <div className="dashlogout">Log Out</div>
+          {(cookies.get('jwt')) ? (
+              <div className="dashlogout" onClick={logout}>Log Out</div>
+            ) : (
+              <div className=""></div>
+            )}
         </div>
         <div className="dashnav1">
           <img className="dashnav2" src={profile} />
-          <div className="dashnav3">HOME</div>
+          <div className="dashnav3">ACCOUNT</div>
         </div>
       </div>
       <div className="account">
