@@ -19,19 +19,19 @@ const SetTotal = () => {
 
   const logout = async() => {
     // destroy cookie  in browser
-    // const result = await axios.get(
-        //   `https://leeds.onrender.com/api/users/logout`,
-        //   {
-        //     headers: {
-        //       Authorization: `Bearer ${cookies.get('jwt')}`,
-        //     },
-        //   }
-        // );
-        const result = await axios.get(`http://localhost:1515/api/users/logout`, {
-          headers: {
-            'Authorization': `Bearer ${cookies.get('jwt')}`
+    const result = await axios.get(
+          `https://leeds.onrender.com/api/users/logout`,
+          {
+            headers: {
+              Authorization: `Bearer ${cookies.get('jwt')}`,
+            },
           }
-        })
+        );
+        // const result = await axios.get(`http://localhost:1515/api/users/logout`, {
+        //   headers: {
+        //     'Authorization': `Bearer ${cookies.get('jwt')}`
+        //   }
+        // })
         if (result.data.status === 'success') {
           cookies.remove('jwt');
           navigate('/')
