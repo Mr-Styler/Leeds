@@ -5,7 +5,7 @@ import image2 from '../../img/hand-regular.svg';
 import image3 from '../../img/handshake-regular.svg';
 import image4 from '../../img/account-svg.svg';
 import dashlogo from '../../img/leeds-blue.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import profile from '../../img/profile.png';
 
 import Cookies from 'universal-cookie';
@@ -13,6 +13,7 @@ import axios from 'axios';
 const cookies = new Cookies();
 
 const Dashboard = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState({});
 
   const logout = async() => {
@@ -32,6 +33,7 @@ const Dashboard = () => {
         // })
         if (result.data.status === 'success') {
           cookies.remove('jwt');
+          navigate('/')
         }
         console.log(result.data.message)
     // destroy token in server

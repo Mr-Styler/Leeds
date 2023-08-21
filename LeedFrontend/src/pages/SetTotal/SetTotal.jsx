@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../../pages/SetTotal/SetTotal.css';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'universal-cookie';
 import dashlogo from '../../img/leeds-blue.png';
@@ -10,6 +10,7 @@ import profile from '../../img/profile.png';
 const cookies = new Cookies();
 
 const SetTotal = () => {
+  const navigate = useNavigate();
   const params = useParams();
   const { userId } = params;
 
@@ -33,6 +34,7 @@ const SetTotal = () => {
         })
         if (result.data.status === 'success') {
           cookies.remove('jwt');
+          navigate('/')
         }
         console.log(result.data.message)
     // destroy token in server

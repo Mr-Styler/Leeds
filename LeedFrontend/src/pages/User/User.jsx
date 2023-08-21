@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../../pages/User/User.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import dashlogo from '../../img/leeds-blue.png';
@@ -11,6 +11,7 @@ const cookies = new Cookies();
 const User = () => {
   const [users, setUsers] = useState([]);
   const [transactions, setTransactions] = useState([]);
+  const navigate = useNavigate();
   let count = 0;
 
   const logout = async() => {
@@ -30,6 +31,7 @@ const User = () => {
         // })
         if (result.data.status === 'success') {
           cookies.remove('jwt');
+          navigate('/')
         }
         console.log(result.data.message)
     // destroy token in server

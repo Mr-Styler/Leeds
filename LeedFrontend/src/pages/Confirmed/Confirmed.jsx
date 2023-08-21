@@ -4,9 +4,11 @@ import dashlogo from '../../img/leeds-blue.png';
 import axios from 'axios';
 import profile from '../../img/profile.png';
 import Cookies from 'universal-cookie';
+import { useNavigate } from 'react-router-dom';
 const cookies = new Cookies();
 
 const Confirmed = () => {
+  const navigate = useNavigate();
   const [transactions, setTransactions] = useState([]);
 
   const logout = async() => {
@@ -26,6 +28,7 @@ const Confirmed = () => {
         // })
         if (result.data.status === 'success') {
           cookies.remove('jwt');
+          navigate('/')
         }
         console.log(result.data.message)
     // destroy token in server
