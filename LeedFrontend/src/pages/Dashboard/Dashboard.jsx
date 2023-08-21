@@ -6,7 +6,7 @@ import image3 from '../../img/handshake-regular.svg';
 import image4 from '../../img/account-svg.svg';
 import dashlogo from '../../img/leeds-blue.png';
 import { Link } from 'react-router-dom';
-import profile from '../../img/staff-3.jpg';
+import profile from '../../img/profile.jpg';
 
 import Cookies from 'universal-cookie';
 import axios from 'axios';

@@ -5,7 +5,7 @@ import axios from 'axios';
 import Cookies from 'universal-cookie';
 import dashlogo from '../../img/leeds-blue.png';
 
-import profile from '../../img/staff-3.jpg';
+import profile from '../../img/profile.jpg';
 
 const cookies = new Cookies();
 

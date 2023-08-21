@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import styles from '../../pages/Confirmed/Confirmed.css';
 import dashlogo from '../../img/leeds-blue.png';
 import axios from 'axios';
-import profile from '../../img/staff-3.jpg';
+import profile from '../../img/profile.jpg';
 import Cookies from 'universal-cookie';
 const cookies = new Cookies();
 
